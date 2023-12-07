@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=no"
+    />
+    <title>제일제당</title>
+    <link href="img/favicon.ico" rel="shortcut icon" />
+    <link href="css/index.css" rel="stylesheet" />
+    <script src="js/jquery-3.7.0.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+    <!-- 마우스휠 -->
+    <script type="text/javascript">
+      window.onload = function () {
+        var elm = "#wrap>div";
+        $(elm).each(function (index) {
+          // 개별적으로 Wheel 이벤트 적용
+          $(this).on("mousewheel DOMMouseScroll", function (e) {
+            e.preventDefault();
+            var delta = 0;
+            if (!event) event = window.event;
+            if (event.wheelDelta) {
+              delta = event.wheelDelta / 120;
+              if (window.opera) delta = -delta;
+            } else if (event.detail) delta = -event.detail / 3;
+            var moveTop = $(window).scrollTop();
+            var elmSelecter = $(elm).eq(index);
+            // 마우스휠을 위에서 아래로
+            if (delta < 0) {
+              if ($(elmSelecter).next() != undefined) {
+                try {
+                  moveTop = $(elmSelecter).next().offset().top;
+                } catch (e) {}
+              }
+              // 마우스휠을 아래에서 위로
+            } else {
+              if ($(elmSelecter).prev() != undefined) {
+                try {
+                  moveTop = $(elmSelecter).prev().offset().top;
+                } catch (e) {}
+              }
+            }
+
+            // 화면 이동 0.8초(800)
+            $("html,body")
+              .stop()
+              .animate(
+                {
+                  scrollTop: moveTop + "px",
+                },
+                {
+                  duration: 800,
+                  complete: function () {},
+                }
+              );
+          });
+        });
+      };
+    </script>
+  </head>
+  <body>
+    <!-- header -->
+    <!-- header -->
+    <header>
+      <div class="burgeropen">
+        <ul>
+          <li><a href="sub1.html">ABOUT</a></li>
+          <li><a href="sub2.html">INNOVATION</a></li>
+          <li><a href="sub3.html">BRANDS</a></li>
+          <li><a href="sub4.html">SUSTAINABILITY</a></li>
+          <li><a href="sub5.html">K-FOOD LIFE</a></li>
+        </ul>
+      </div>
+
+      <div class="menubar">
+        <div class="burger">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <h1 class="logo">
+          <a href="index.html"><img src="img/logo.png" /></a>
+          <a href="index.html"><img class="on" src="img/logow.png" /></a>
+        </h1>
+        <h1 class="logo1">
+          <a href="index.html"><img src="img/logo.png" /></a>
+          <a href="index.html"><img class="on" src="img/logow.png" /></a>
+        </h1>
+        <ul class="menu">
+          <li>
+            <a href="sub1.html">ABOUT</a>
+            <ul>
+              <li><a href="#1">CJ제일제당소개</a></li>
+              <li><a href="#1">사업소개</a></li>
+              <li><a href="#1">글로벌 현황</a></li>
+              <li><a href="#1">회사소식</a></li>
+              <li><a href="#1">투자정보</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="sub2.html">INNOVATION</a>
+            <ul>
+              <li><a href="#1">CJ블로썸파크</a></li>
+              <li><a href="#1">CJ블로썸캠퍼스</a></li>
+              <li><a href="#1">CJ블로썸캠퍼스 투어</a></li>
+              <li><a href="#1">오픈이노베이션</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="sub3.html">BRANDS</a>
+            <ul>
+              <li><a href="#1">비비고</a></li>
+              <li><a href="#1">햇반</a></li>
+              <li><a href="#1">고메</a></li>
+              <li><a href="#1">백설</a></li>
+              <li><a href="#1">다시다</a></li>
+              <li><a href="#1">해찬들</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="sub4.html">SUSTAINABILITY</a>
+            <ul>
+              <li><a href="#1">대외인정 및 발자취</a></li>
+              <li><a href="#1">보고서 및 정책</a></li>
+              <li><a href="#1">기후변화 대응</a></li>
+              <li><a href="#1">건강과 영양 증진</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="sub5.html">K-FOOD LIFE</a>
+            <ul>
+              <li><a href="#1">K-푸드스토리</a></li>
+              <li><a href="#1">트렌드 인사이트</a></li>
+              <li><a href="#1">CJ더키친</a></li>
+              <li><a href="#1">CJ THE MARKET</a></li>
+              <li><a href="#1">CJ제일제당 소셜채널</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="headerline"></div>
+    </header>
+    <ul id="mainnavi">
+      <li class="on">
+        <a href="#con1"><div></div></a>
+      </li>
+      <li>
+        <a href="#con2"><div></div></a>
+      </li>
+      <li>
+        <a href="#con3"><div></div></a>
+      </li>
+      <li>
+        <a href="#con4"><div></div></a>
+      </li>
+      <li>
+        <a href="#con5"><div></div></a>
+      </li>
+    </ul>
+
+    <div id="wrap">
+      <!-- con1 -->
+      <!-- con1 -->
+      <div id="con1">
+        <div class="navi1">
+          <span class="material-symbols-outlined prev1"> arrow_back_ios </span>
+          <div class="btn1">
+            <div class="out1"><div class="in1"></div></div>
+            <div class="out1"><div class="in1"></div></div>
+            <div class="out1"><div class="in1"></div></div>
+          </div>
+          <span class="material-symbols-outlined next1">
+            arrow_forward_ios
+          </span>
+        </div>
+        <div class="maintitle">
+          <h2 class="top">Green BIO 기술 혁신으로</h2>
+          <h2 class="bottom">세계인의 삶이 풍요로워 집니다.</h2>
+
+          <h2 class="top">글로벌 지역사회와 함께</h2>
+          <h2 class="bottom">성장하는 세상을 만듭니다.</h2>
+
+          <h2 class="top">건강과 안전을 최우선으로</h2>
+          <h2 class="bottom">식탁이 K-Food로 즐거워집니다.</h2>
+        </div>
+        <ul class="slide1">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+      <!-- con2 -->
+      <!-- con2 -->
+      <div id="con2">
+        <div class="con2wrap">
+          <div>
+            <div class="backcolor">
+              <div class="ho_in2 mo_down1">
+                <h3>25</h3>
+                <h4>독보적 국내 1위의 25개</h4>
+                <p>
+                  세계가 사랑하는 식품 브랜드를 만듭니다.<br />
+                  세계인들의 먹거리를 맛있고 건강하게 채우겠습니다.
+                </p>
+                <div class="view2">
+                  <p>자세히 보기</p>
+                  <div>
+                    <img src="img/index_con2_view.png" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="in2 mo_down">
+              <img src="img/index_con2_icon1.png" />
+              <h2>Brands</h2>
+              <p>독보적 국내 1위의 25개<br />식문화 브랜드</p>
+            </div>
+          </div>
+          <div>
+            <div class="backcolor">
+              <div class="ho_in2">
+                <h3>1953</h3>
+                <h4>1953년 대한민국 최초</h4>
+                <p>
+                  대한민국 최초의 설탕 제조업으로부터 출발하여<br />
+                  다양한 사업 영역을 확장하면서 성장을 거듭해 왔습니다.
+                </p>
+                <div class="view2">
+                  <p>자세히 보기</p>
+                  <div>
+                    <img src="img/index_con2_view.png" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="in2">
+              <img src="img/index_con2_icon2.png" />
+              <h2>History</h2>
+              <p>
+                70년의 역사, 1953년 대한민국<br />
+                최초의 설탕 제조업으로부터 출발
+              </p>
+            </div>
+          </div>
+          <div>
+            <div class="backcolor">
+              <div class="ho_in2">
+                <h3>No.1</h3>
+                <h4>기술을 바탕으로 Global No.1</h4>
+                <p>
+                  Green BIO사업에서의 역량을 기반으로<br />
+                  영역을 확장해가며 사업을 구축하고 있습니다.
+                </p>
+                <div class="view2">
+                  <p>자세히 보기</p>
+                  <div>
+                    <img src="img/index_con2_view.png" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="in2">
+              <img src="img/index_con2_icon3.png" />
+              <h2>Global BIO</h2>
+              <p>
+                50년 이상 축적된 발효기술을 바탕으로<br />핵산, 라이신, 트립토판
+                등 Global No.1
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- con3 -->
+      <!-- con3 -->
+      <div id="con3">
+        <div class="contitle">
+          <h4>BRANDS</h4>
+          <h3>
+            K-Food 열풍을 만들어 가는<br />
+            식품 브랜드를 소개합니다.
+          </h3>
+        </div>
+        <div class="all3">
+          <div class="wrap3">
+            <div class="box3">
+              <ul class="slide3 slide31">
+                <li class="on"><img src="img/index_con3_5.png" /></li>
+                <li><img src="img/index_con3_6.png" /></li>
+                <li><img src="img/index_con3_1.png" /></li>
+                <li><img src="img/index_con3_2.png" /></li>
+                <li><img src="img/index_con3_3.png" /></li>
+                <li><img src="img/index_con3_4.png" /></li>
+              </ul>
+            </div>
+            <div class="box3">
+              <ul class="slide3 slide32">
+                <li class="on"><img src="img/index_con3_6.png" /></li>
+                <li><img src="img/index_con3_1.png" /></li>
+                <li><img src="img/index_con3_2.png" /></li>
+                <li><img src="img/index_con3_3.png" /></li>
+                <li><img src="img/index_con3_4.png" /></li>
+                <li><img src="img/index_con3_5.png" /></li>
+              </ul>
+            </div>
+            <div class="box3 big3">
+              <ul class="slide3 slide33">
+                <li class="on"><img src="img/index_con3_1.png" /></li>
+                <li><img src="img/index_con3_2.png" /></li>
+                <li><img src="img/index_con3_3.png" /></li>
+                <li><img src="img/index_con3_4.png" /></li>
+                <li><img src="img/index_con3_5.png" /></li>
+                <li><img src="img/index_con3_6.png" /></li>
+              </ul>
+            </div>
+            <div class="box3">
+              <ul class="slide3 slide34">
+                <li class="on"><img src="img/index_con3_2.png" /></li>
+                <li><img src="img/index_con3_3.png" /></li>
+                <li><img src="img/index_con3_4.png" /></li>
+                <li><img src="img/index_con3_5.png" /></li>
+                <li><img src="img/index_con3_6.png" /></li>
+                <li><img src="img/index_con3_1.png" /></li>
+              </ul>
+            </div>
+            <div class="box3">
+              <ul class="slide3 slide35">
+                <li class="on"><img src="img/index_con3_3.png" /></li>
+                <li><img src="img/index_con3_4.png" /></li>
+                <li><img src="img/index_con3_5.png" /></li>
+                <li><img src="img/index_con3_6.png" /></li>
+                <li><img src="img/index_con3_1.png" /></li>
+                <li><img src="img/index_con3_2.png" /></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="prev3 arr3"><img src="img/index_con3_prev.png" /></div>
+          <div class="next3 arr3"><img src="img/index_con3_next.png" /></div>
+          <ul class="navi3">
+            <li class="on"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+          <div class="textbox3">
+            <div class="text31 text3 on">
+              <h4 class="col1">비비고</h4>
+              <p>
+                비비고의 삶을 더 맛있게 만듭니다.<br />
+                즐거움이라는 반찬과 함께 즐겨보세요.
+              </p>
+              <div class="view3">
+                <p>자세히 보기</p>
+                <div><img src="img/index_con3_view.png" /></div>
+              </div>
+            </div>
+            <div class="text32 text3">
+              <h4 class="col2">고메</h4>
+              <p>
+                미식가, 식도락가, 혹은 음식에 밝은 사람을 뜻하며<br />
+                고메는 특별한 미식의 경험을 제공합니다.
+              </p>
+              <div class="view3">
+                <p>자세히 보기</p>
+                <div><img src="img/index_con3_view.png" /></div>
+              </div>
+            </div>
+            <div class="text33 text3">
+              <h4 class="col3">햇반</h4>
+              <p>
+                당일 도정한 쌀로 지은 맛있고<br />
+                신선한 밥의 의미를 담았습니다.
+              </p>
+              <div class="view3">
+                <p>자세히 보기</p>
+                <div><img src="img/index_con3_view.png" /></div>
+              </div>
+            </div>
+            <div class="text34 text3">
+              <h4 class="col4">백설</h4>
+              <p>
+                시간으로 빚어진 오랜 노하우, 전문성과 신뢰로<br />
+                매일의 일상을 만들어 가고 있습니다.
+              </p>
+              <div class="view3">
+                <p>자세히 보기</p>
+                <div><img src="img/index_con3_view.png" /></div>
+              </div>
+            </div>
+            <div class="text35 text3">
+              <h4 class="col5">다시다</h4>
+              <p>
+                오늘도 맛있는 음식을 직접 요리하고<br />
+                가족들과 함께 나누는 행복한 식탁을 생각합니다.
+              </p>
+              <div class="view3">
+                <p>자세히 보기</p>
+                <div><img src="img/index_con3_view.png" /></div>
+              </div>
+            </div>
+            <div class="text36 text3">
+              <h4 class="col6">더 건강한</h4>
+              <p>
+                재료 본연의 맛과 식감을 살린 요리로<br />
+                앞서나가는 라이프스타일을 제안합니다.
+              </p>
+              <div class="view3">
+                <p>자세히 보기</p>
+                <div><img src="img/index_con3_view.png" /></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- con4 -->
+      <!-- con4 -->
+      <div id="con4">
+        <div class="contitle">
+          <h4>INNOVATION</h4>
+          <h3>
+            혁신적인 연구로 새로움을 창조하고<br />
+            더 나은 삶을 만들어 갑니다.
+          </h3>
+        </div>
+        <div class="wrap4">
+          <div class="imagebox4">
+            <ul>
+              <li><img src="img/index_con4_1.png" /></li>
+              <li><img src="img/index_con4_2.jpg" /></li>
+              <li><img src="img/index_con4_3.jpg" /></li>
+              <li><img src="img/index_con4_1.png" /></li>
+            </ul>
+          </div>
+          <div class="textbox4">
+            <div class="in4">
+              <div class="text4 on">
+                <h4>CJ 블로썸파크</h4>
+                <p>
+                  식품, BIO, FNT 핵심 연구소를 한 곳에 모아 강력한 시너지를
+                  창출합니다. 열린 소통을 통해 새로움을 창조하는 글로벌
+                  컴퍼니로의 성장, 그 시작점에 CJ블로썸파크가 있습니다.
+                </p>
+                <div class="view4">
+                  <p>자세히 보기</p>
+                  <div><img src="img/index_con2_view.png" /></div>
+                </div>
+              </div>
+              <div class="text4">
+                <h4>식품 연구소</h4>
+                <p>
+                  1978년에 설립된 식품 연구소는 국내 최고 수준의 연구인력과 첨단
+                  설비로 다양한 식품분야의 기반기술 연구부터 상품화에 이르는
+                  유기적인 시스템을 갖추고 있으며, 신제품으로 새로운 식생활
+                  문화를 창조합니다.
+                </p>
+                <div class="view4">
+                  <p>자세히 보기</p>
+                  <div><img src="img/index_con2_view.png" /></div>
+                </div>
+              </div>
+              <div class="text4">
+                <h4>BIO 연구소</h4>
+                <p>
+                  세계 최고 수준의 생명공학 기술을 기반으로 다양한 셀팩토리를
+                  활용하여 BIO 산업의 혁신적인 미래를 선도하고 대형 제품 및 기술
+                  집약 고부가가치 제품 개발로 글로벌 솔루션 프로바이더로
+                  성장하겠습니다.
+                </p>
+                <div class="view4">
+                  <p>자세히 보기</p>
+                  <div><img src="img/index_con2_view.png" /></div>
+                </div>
+              </div>
+            </div>
+            <ul class="navi4">
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+            <div class="arr4">
+              <img class="prev4" src="img/index_con4_prev.png" />
+              <img class="next4" src="img/index_con4_next.png" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- con5 -->
+      <!-- con5 -->
+      <div id="con5">
+        <div class="contitle">
+          <h4>Notice</h4>
+          <h3>CJ제일제당은 고객님의 소중한 의견을 듣고 있습니다.</h3>
+        </div>
+        <div class="wrap5">
+          <div class="line5"></div>
+          <div class="textbox5">
+            <h3><span>23.</span>11.20</h3>
+            <div class="text5">
+              <h4>
+                <span>CJ제일제당 서비스 점검으로 인한 </span>홈페이지 이용 제한
+                안내(11/25~11/26)
+              </h4>
+              <p>
+                안녕하세요. CJ제일제당입니다. 보다 나은 서비스 제공을 위한
+                서비스 점검이 진행됩니다. 아래의 서비스 점검 ...
+              </p>
+            </div>
+          </div>
+          <div class="line5"></div>
+          <div class="textbox5">
+            <h3><span>23.</span>10.23</h3>
+            <div class="text5">
+              <h4>
+                (주)다담 '순수사골육수' 관련 <span>CJ제일제당 오인지 </span>안내
+              </h4>
+              <p>
+                식품의약품안전처로부터 회수 조치를 받은 (주)다담 '순수사골 육수'
+                제품은 CJ제일제당 및 다담 브랜드 ...
+              </p>
+            </div>
+          </div>
+          <div class="line5"></div>
+          <div class="textbox5">
+            <h3><span>23.</span>10.19</h3>
+            <div class="text5">
+              <h4>
+                CJ제일제당 개인정보처리방침 내용 변경<span>
+                  고지(10월20일 시행)</span
+                >
+              </h4>
+              <p>
+                홈페이지의 개인정보처리방침이 2023년 10월 20일자로 변경될
+                예정입니다. 아래 변경된 개인정보처리방침 ...
+              </p>
+            </div>
+          </div>
+          <div class="line5"></div>
+          <div class="textbox5">
+            <h3><span>23.</span>10.06</h3>
+            <div class="text5">
+              <h4>
+                <span>'CJ제일제당', </span>'신의도 천일염' 사칭 사기범죄 주의
+                안내
+              </h4>
+              <p>
+                최근 'CJ제일제당' 또는 '신의도 천일염' 명의를 도용하여 소금 납품
+                대금을 편취하는 수법에 의한 범죄 ...
+              </p>
+            </div>
+          </div>
+          <div class="line5"></div>
+        </div>
+        <!--footer -->
+        <!--footer -->
+        <footer>
+          <div class="wrapfooter">
+            <div class="wrapleft">
+              <h1>
+                <a href="index.html"><img src="img/logow.png" /></a>
+              </h1>
+              <p class="foot">
+                대표자 손경식, 최은석 주소 서울특별시 중구 동호로 330 CJ
+                제일제당센터<br />
+                대표전화 02-6740-1114　고객행복센터 080-850-1200
+              </p>
+              <p class="foot1">
+                대표자 손경식, 최은석<br />주소 서울특별시 중구 동호로 330 CJ
+                제일제당센터<br />
+                대표전화 02-6740-1114　고객행복센터 080-850-1200
+              </p>
+              <p class="copy">
+                © Copyright 2023. iPARKING EV. All right Reserved.
+              </p>
+            </div>
+            <div class="wrapright">
+              <div class="family">
+                <div class="base">
+                  <div class="up">
+                    <div>
+                      <p>CJ그룹</p>
+                      <p>식품 & 식품서비스</p>
+                      <p>생명공학</p>
+                      <p>물류 & 신유통</p>
+                      <p>엔터테인먼트 & 미디어</p>
+                    </div>
+                  </div>
+                  FAMILY SITE
+                  <span class="material-symbols-outlined on">
+                    expand_more
+                  </span>
+                </div>
+              </div>
+              <ul class="fooicon">
+                <li><img src="img/index_footer_icon1.png" /></li>
+                <li><img src="img/index_footer_icon2.png" /></li>
+                <li><img src="img/index_footer_icon3.png" /></li>
+              </ul>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </body>
+  <script src="js/index.js"></script>
+</html>
